@@ -1,0 +1,91 @@
+body,
+html {
+  padding: 0;
+  margin: 0;
+  background-color: #555;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.players {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  justify-content: center;
+  border: 1px solid white;
+  font-size: 100px;
+  cursor: pointer;
+  background-color: rgb(0, 200, 0);
+}
+.app {
+  display: none;
+  flex: wrap;
+  flex-direction: column;
+  height: 100vh;
+  color: white;
+}
+#form {
+  margin: 1em 2em;
+  color: white;
+  border: 2px solid black;
+  padding: 2rem;
+  border-radius: 1em;
+  background-color: #666;
+}
+#a {
+  rotate: -180deg;
+}
+label {
+  font-size: larger;
+  color: white;
+}
+input {
+  border-radius: 5px;
+  background-color: #888;
+  margin-bottom: 20px;
+  width: 80%;
+  padding: 3px;
+  color: white;
+}
+button {
+  display: block;
+  margin: auto;
+  background-color: #555;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 5px;
+  color: white;
+  cursor: pointer;
+}
+h1 {
+  color: white;
+  text-transform: capitalize;
+  display: block;
+  text-align: center;
+}
+
+#result {
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+}
+
+#message {
+  color: white;
+  background-color: #555;
+  font-size: x-large;
+  display: block;
+  margin: auto;
+  border: 2px solid white;
+  padding: 1em;
+  border-radius: 5px;
+}
+.flipped {
+  rotate: 180deg;
+}
+@keyframes color {
+
+}

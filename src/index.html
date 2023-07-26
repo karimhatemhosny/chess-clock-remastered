@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chess Clock</title>
+  </head>
+  <body>
+    <div id="settings">
+      <hr />
+      <h1>chess clock</h1>
+      <hr />
+      <form id="form">
+        <label>Minutes</label><br />
+        <input
+          type="number"
+          id="minutes"
+          inputmode="numeric"
+          value="1"
+          required
+        /><br />
+        <label>Seconds</label><br />
+        <input
+          type="number"
+          id="seconds"
+          inputmode="numeric"
+          value="0"
+          required
+        /><br />
+        <label>Bonus time</label><br />
+        <input type="number" id="ext" inputmode='numeric' /><br />
+        <button id="submit" type="submit">Go to clock</button>
+      </form>
+    </div>
+    <div class="app">
+      <div class="players" id="a"></div>
+      <div class="players" id="b"></div>
+    </div>
+    <div id="result">
+      <div id="message">Player A wins</div>
+    </div>
+  </body>
+</html>
