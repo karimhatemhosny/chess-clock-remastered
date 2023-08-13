@@ -14,6 +14,7 @@ let paused = false;
 const buttonA = document.getElementById('a');
 const buttonB = document.getElementById('b');
 const app = document.querySelector('.app');
+const timers = document.querySelector('.timers');
 const settings = document.querySelector('#settings');
 const result = document.querySelector('#result');
 const message = document.querySelector('#message');
@@ -27,6 +28,8 @@ const flag2 = document.querySelector('#flag2');
 const home = document.querySelector('#home');
 const pause = document.querySelector('#pause');
 const play = document.querySelector('#play');
+const hand1 = document.querySelector('#hand1');
+const hand2 = document.querySelector('#hand2');
 
 form.onsubmit = function (event) {
   event.preventDefault();
@@ -40,6 +43,7 @@ form.onsubmit = function (event) {
 };
 
 function timerA() {
+  if (paused) return;
   if (!activePlayer) {
     activePlayer = 'a';
     timerB();
@@ -66,6 +70,7 @@ function timerA() {
   }, 1000);
 }
 function timerB() {
+  if (paused) return;
   if (!activePlayer) {
     activePlayer = 'b';
     timerA();
@@ -93,29 +98,53 @@ function timerB() {
   // i honestly dont understand anything but atleast the clock works
 }
 
-function showMessage(msg) {
+function showMessage(msg, flped) {
   result.style.display = 'flex';
   message.innerText = msg;
-  if (msg === '🎉🎊 Player A WINS!! 🎊🎉') {
+  if (flped === true) {
     message.classList.add('flipped');
+  } else {
+    message.classList.remove('flipped');
   }
 }
 
-function showConfirm(msg, fn) {
+function showConfirm(msg, flped, fn) {
+  clearInterval(intervalA);
+  clearInterval(intervalB);
+
+  if (flped === true) {
+    message.classList.add('flipped');
+  } else {
+    message.classList.remove('flipped');
+  }
   result.style.display = 'flex';
   const content = `
   <div>${msg}</div>
-  <div><button id="yes">Yes</button><button id="no">Cancel</button></div>
+  <div><button id="yes">Yes</button><button id="no">No</button></div>
   `;
   message.innerHTML = content;
   document.querySelector('#yes').onclick = () => {
     result.style.display = 'none';
     message.innerHTML = '';
+    if (activePlayer === 'a') {
+      activePlayer = 'b';
+      timerA();
+    } else if (activePlayer === 'b') {
+      activePlayer = 'a';
+      timerB();
+    }
     fn();
   };
   document.querySelector('#no').onclick = () => {
     result.style.display = 'none';
     message.innerHTML = '';
+    if (activePlayer === 'a') {
+      activePlayer = 'b';
+      timerA();
+    } else if (activePlayer === 'b') {
+      activePlayer = 'a';
+      timerB();
+    }
   };
 }
 
@@ -151,21 +180,22 @@ function reset() {
   times.b = 0;
   result.style.display = 'none';
   message.innerHTML = '';
+  message.classList.remove('flipped');
 }
 
 home.onclick = function () {
-  showConfirm('Are you sure you want to quit?', reset);
+  showConfirm('Are you sure you want to quit?', false, reset);
 };
 
 flag1.onclick = function () {
-  showConfirm('Are you sure you want to resign?', () => {
-    showMessage('🎉🎊 Player B WINS!! 🎊🎉');
+  showConfirm('Are you sure you want to resign?', true, () => {
+    showMessage('🎉🎊 Player B WINS!! 🎊🎉', false);
     setTimeout(reset, 5000);
   });
 };
 flag2.onclick = function () {
-  showConfirm('Are you sure you want to resign?', () => {
-    showMessage('🎉🎊 Player A WINS!! 🎊🎉');
+  showConfirm('Are you sure you want to resign?', false, () => {
+    showMessage('🎉🎊 Player A WINS!! 🎊🎉', true);
     setTimeout(reset, 5000);
   });
 };
@@ -173,6 +203,7 @@ flag2.onclick = function () {
 function playPause() {
   if (paused === false) {
     paused = true;
+    timers.classList.add('paused');
     play.style.display = 'unset';
     pause.style.display = 'none';
     clearInterval(intervalA);
@@ -181,6 +212,7 @@ function playPause() {
     play.style.display = 'none';
     pause.style.display = 'unset';
     paused = false;
+    timers.classList.remove('paused');
     if (activePlayer === 'a') {
       activePlayer = 'b';
       timerA();
@@ -189,7 +221,24 @@ function playPause() {
       timerB();
     }
   }
-};
+}
 
 pause.onclick = playPause;
 play.onclick = playPause;
+
+hand1.onclick = function () {
+  showConfirm('Accept draw?', false, () => {
+    showMessage('Game Drawn 🙄');
+    clearInterval(intervalA);
+    clearInterval(intervalB);
+    setTimeout(reset, 5000);
+  });
+};
+hand2.onclick = function () {
+  showConfirm('Accept draw?', true, () => {
+    showMessage('Game Drawn 🙄');
+    clearInterval(intervalA);
+    clearInterval(intervalB);
+    setTimeout(reset, 5000);
+  });
+};
