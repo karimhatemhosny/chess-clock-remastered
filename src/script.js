@@ -60,6 +60,7 @@ function timerA() {
     if (times.b === 0) {
       buttonB.style.backgroundColor = `rgb(255,0,0)`;
       showMessage('🎉🎊 Player A WINS!! 🎊🎉');
+      setTimeout(reset, 5000);
     } else {
       times.b -= 1; // time
       buttonB.innerText = showInMinutes(times.b); // time
@@ -85,8 +86,9 @@ function timerB() {
   clearInterval(intervalB);
   intervalA = setInterval(() => {
     if (times.a === 0) {
-      showMessage('🎉🎊 Player B WINS!! 🎊🎉');
       buttonA.style.backgroundColor = `rgb(255,0,0)`;
+      showMessage('🎉🎊 Player B WINS!! 🎊🎉');
+      setTimeout(reset, 5000);
     } else {
       times.a -= 1; // time
       buttonA.innerText = showInMinutes(times.a); // time
