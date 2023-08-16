@@ -30,6 +30,7 @@ const pause = document.querySelector('#pause');
 const play = document.querySelector('#play');
 const hand1 = document.querySelector('#hand1');
 const hand2 = document.querySelector('#hand2');
+const players = document.querySelector('.players');
 
 form.onsubmit = function (event) {
   event.preventDefault();
@@ -59,7 +60,7 @@ function timerA() {
   intervalB = setInterval(() => {
     if (times.b === 0) {
       buttonB.style.backgroundColor = `rgb(255,0,0)`;
-      showMessage('🎉🎊 Player A WINS!! 🎊🎉');
+      showMessage('🎉🎊 Player A WINS!! 🎊🎉', true);
       setTimeout(reset, 5000);
     } else {
       times.b -= 1; // time
@@ -87,7 +88,7 @@ function timerB() {
   intervalA = setInterval(() => {
     if (times.a === 0) {
       buttonA.style.backgroundColor = `rgb(255,0,0)`;
-      showMessage('🎉🎊 Player B WINS!! 🎊🎉');
+      showMessage('🎉🎊 Player B WINS!! 🎊🎉', false);
       setTimeout(reset, 5000);
     } else {
       times.a -= 1; // time
@@ -183,6 +184,8 @@ function reset() {
   result.style.display = 'none';
   message.innerHTML = '';
   message.classList.remove('flipped');
+  buttonA.style.backgroundColor = 'rgb(0, 200, 0)'
+  buttonB.style.backgroundColor = 'rgb(0, 200, 0)'
 }
 
 home.onclick = function () {
@@ -191,12 +194,16 @@ home.onclick = function () {
 
 flag1.onclick = function () {
   showConfirm('Are you sure you want to resign?', true, () => {
+    clearInterval(intervalA)
+    clearInterval(intervalB)
     showMessage('🎉🎊 Player B WINS!! 🎊🎉', false);
     setTimeout(reset, 5000);
   });
 };
 flag2.onclick = function () {
   showConfirm('Are you sure you want to resign?', false, () => {
+    clearInterval(intervalA)
+    clearInterval(intervalB)
     showMessage('🎉🎊 Player A WINS!! 🎊🎉', true);
     setTimeout(reset, 5000);
   });
@@ -230,7 +237,7 @@ play.onclick = playPause;
 
 hand1.onclick = function () {
   showConfirm('Accept draw?', false, () => {
-    showMessage('Game Drawn 🙄');
+    showMessage('Game Drawn 🙄', true);
     clearInterval(intervalA);
     clearInterval(intervalB);
     setTimeout(reset, 5000);
@@ -238,7 +245,7 @@ hand1.onclick = function () {
 };
 hand2.onclick = function () {
   showConfirm('Accept draw?', true, () => {
-    showMessage('Game Drawn 🙄');
+    showMessage('Game Drawn 🙄', false);
     clearInterval(intervalA);
     clearInterval(intervalB);
     setTimeout(reset, 5000);
