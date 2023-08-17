@@ -29,9 +29,6 @@ html {
   border-radius: 1em;
   background-color: #666;
 }
-#a {
-  rotate: -180deg;
-}
 label {
   font-size: larger;
   color: white;
@@ -140,7 +137,22 @@ h1 {
   margin-left: 50px;
   margin-right: 7px;
 }
+
 #form2 
 #sumbit2 {
   margin-top: 2em;
+}
+#playerB {
+  text-align: center;
+  font-size: 30px;
+  padding-top: 5px;
+  margin-bottom: 5px; 
+  border-top: 1px solid white;
+}
+#playerA{
+  text-align: center;
+  font-size: 30px;
+  padding-top: 5px;
+  margin-top: 5px;
+  
 }

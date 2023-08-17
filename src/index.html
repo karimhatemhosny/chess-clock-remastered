@@ -39,17 +39,53 @@
       </form>
       <form id="form2">
         <h2>Or choose from:</h2>
-        <input type="radio" name="template" value="1min" id='option1' /><label for='option1'>1 minute</label><br />
-        <input type="radio" name="template" value="1min+1" id='option2' /><label for='option2'>1 minute + 1</label><br />
-        <input type="radio" name="template" value="3min" id='option3' /><label for='option3'>3 minutes</label><br />
-        <input type="radio" name="template" value="5min" id='option4' /><label for='option4'>5 minutes</label><br />
-        <input type="radio" name="template" value="5min+10" id='option5' /><label for='option5'>5 minutes + 10</label><br />
-        <input type="radio" name="template" value="10min" id='option6' /><label for='option6'>10 minutes</label><br />
-        <input type="radio" name="template" value="10min+15" id='option7' /><label for='option7'>10 minutes + 15</label><br />
-        <input type="radio" name="template" value="15min" id='option8' /><label for='option8'>15 minutes</label><br />
-        <input type="radio" name="template" value="30min" id='option9' /><label for='option9'>30 minutes</label><br />
-        <input type="radio" name="template" value="30min+15" id='option10' /><label for='option10'>30 minutes + 15</label><br />
-        <button id="submit2" type="submit">Go to clock</button><br><br>
+        <input type="radio" name="template" value="1min" id="option1" /><label
+          for="option1"
+          >1 minute</label
+        ><br />
+        <input type="radio" name="template" value="1min+1" id="option2" /><label
+          for="option2"
+          >1 minute + 1</label
+        ><br />
+        <input type="radio" name="template" value="3min" id="option3" /><label
+          for="option3"
+          >3 minutes</label
+        ><br />
+        <input type="radio" name="template" value="5min" id="option4" /><label
+          for="option4"
+          >5 minutes</label
+        ><br />
+        <input
+          type="radio"
+          name="template"
+          value="5min+10"
+          id="option5"
+        /><label for="option5">5 minutes + 10</label><br />
+        <input type="radio" name="template" value="10min" id="option6" /><label
+          for="option6"
+          >10 minutes</label
+        ><br />
+        <input
+          type="radio"
+          name="template"
+          value="10min+15"
+          id="option7"
+        /><label for="option7">10 minutes + 15</label><br />
+        <input type="radio" name="template" value="15min" id="option8" /><label
+          for="option8"
+          >15 minutes</label
+        ><br />
+        <input type="radio" name="template" value="30min" id="option9" /><label
+          for="option9"
+          >30 minutes</label
+        ><br />
+        <input
+          type="radio"
+          name="template"
+          value="30min+15"
+          id="option10"
+        /><label for="option10">30 minutes + 15</label><br />
+        <button id="submit2" type="submit">Go to clock</button><br /><br />
       </form>
     </div>
     <div class="app">
@@ -223,8 +259,11 @@
       </div>
 
       <div class="timers">
-        <div class="players" id="a"></div>
-        <div class="players" id="b"></div>
+        <div class="players flipped" id="a"></div>
+        <div class="title flipped" id='playerA'>Player A</div>
+        <div class="title" id='playerB'>Player B</div>
+        <div class="players" id="b">
+        </div>
       </div>
     </div>
     <div id="result">
