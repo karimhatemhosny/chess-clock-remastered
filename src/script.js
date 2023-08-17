@@ -4,7 +4,21 @@ let extT = 0;
 let times = {
   a: totalTime,
   b: totalTime,
+  bonus: 0,
 };
+
+const templates = {
+  '1min': { min: 1, sec: 0, bonus: 0 },
+  '1min+1': { min: 1, sec: 0, bonus: 1 },
+  '3min': { min: 3, sec: 0, bonus: 0 },
+  '5min': { min: 5, sec: 0, bonus: 0 },
+  '5min+10': { min: 5, sec: 0, bonus: 10 },
+  '10min': { min: 10, sec: 0, bonus: 0 },
+  '10min+15': { min: 10, sec: 0, bonus: 15 },
+  '15min': { min: 15, sec: 0, bonus: 0 },
+  '30min': { min: 30, sec: 0, bonus: 0 },
+  '30min+15': { min: 30, sec: 0, bonus: 15 },
+}
 
 let intervalA;
 let intervalB;
@@ -31,6 +45,7 @@ const play = document.querySelector('#play');
 const hand1 = document.querySelector('#hand1');
 const hand2 = document.querySelector('#hand2');
 const players = document.querySelector('.players');
+const form2 = document.querySelector('#form2')
 
 form.onsubmit = function (event) {
   event.preventDefault();
@@ -41,7 +56,24 @@ form.onsubmit = function (event) {
   buttonB.innerText = showInMinutes(totalTime);
   times.a = totalTime;
   times.b = totalTime;
+  times.bonus = ext.value;
 };
+
+form2.onsubmit = function (event){
+  event.preventDefault()
+  const formData = new FormData(form2);
+  const selectedTemplate = formData.get('template');
+  const template = templates[selectedTemplate]
+
+  totalTime += Number(template.min * 60) + Number(template.sec);
+  settings.style.display = 'none';
+  app.style.display = 'flex';
+  buttonA.innerText = showInMinutes(totalTime);
+  buttonB.innerText = showInMinutes(totalTime);
+  times.a = totalTime;
+  times.b = totalTime;
+  times.bonus = template.bonus;
+}
 
 function timerA() {
   if (paused) return;
@@ -54,7 +86,7 @@ function timerA() {
     return;
   }
   activePlayer = 'a';
-  times.a += Number(ext.value);
+  times.a += Number(times.bonus);
   buttonA.innerText = showInMinutes(times.a); // time
   clearInterval(intervalA);
   intervalB = setInterval(() => {
@@ -82,7 +114,7 @@ function timerB() {
     return;
   }
   activePlayer = 'b';
-  times.b += Number(ext.value);
+  times.b += Number(times.bonus);
   buttonB.innerText = showInMinutes(times.b); // time
   clearInterval(intervalB);
   intervalA = setInterval(() => {
@@ -181,6 +213,7 @@ function reset() {
   activePlayer = undefined;
   times.a = 0;
   times.b = 0;
+  times.bonus = 0;
   result.style.display = 'none';
   message.innerHTML = '';
   message.classList.remove('flipped');

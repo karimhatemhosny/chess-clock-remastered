@@ -131,3 +131,16 @@ h1 {
 .tools svg:active {
   transform: scale(0.97);
 }
+#form2 h2{
+  color: white;
+  text-align: center;
+}
+#form2 input{
+  width: unset;
+  margin-left: 50px;
+  margin-right: 7px;
+}
+#form2 
+#sumbit2 {
+  margin-top: 2em;
+}
