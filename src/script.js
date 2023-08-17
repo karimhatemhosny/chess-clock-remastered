@@ -8,16 +8,21 @@ let times = {
 };
 
 const templates = {
+  '30sec': { min: 0, sec: 30, bonus: 0 },
   '1min': { min: 1, sec: 0, bonus: 0 },
   '1min+1': { min: 1, sec: 0, bonus: 1 },
+  '2min+1': { min: 2, sec: 0, bonus: 1 },
   '3min': { min: 3, sec: 0, bonus: 0 },
+  '3min+2': { min: 3, sec: 0, bonus: 2 },
   '5min': { min: 5, sec: 0, bonus: 0 },
   '5min+10': { min: 5, sec: 0, bonus: 10 },
   '10min': { min: 10, sec: 0, bonus: 0 },
   '10min+15': { min: 10, sec: 0, bonus: 15 },
   '15min': { min: 15, sec: 0, bonus: 0 },
+  '15min+10': { min: 15, sec: 0, bonus: 10 },
   '30min': { min: 30, sec: 0, bonus: 0 },
   '30min+15': { min: 30, sec: 0, bonus: 15 },
+  '30min+50': { min: 30, sec: 0, bonus: 50 },
 }
 
 let intervalA;
