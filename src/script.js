@@ -8,11 +8,17 @@ let times = {
 };
 
 const templates = {
+  '20sec': { min: 0, sec: 20, bonus: 0 },
   '20sec+1': { min: 0, sec: 20, bonus: 1 },
   '30sec': { min: 0, sec: 30, bonus: 0 },
+  '30sec+1': { min: 0, sec: 30, bonus: 1 },
+  '30sec+2': { min: 0, sec: 30, bonus: 2 },
   '1min': { min: 1, sec: 0, bonus: 0 },
   '1min+1': { min: 1, sec: 0, bonus: 1 },
+  '1min+5': { min: 1, sec: 0, bonus: 5 },
+  '2min': { min: 2, sec: 0, bonus: 0 },
   '2min+1': { min: 2, sec: 0, bonus: 1 },
+  '2min+5': { min: 2, sec: 0, bonus: 5 },
   '3min': { min: 3, sec: 0, bonus: 0 },
   '3min+2': { min: 3, sec: 0, bonus: 2 },
   '5min': { min: 5, sec: 0, bonus: 0 },

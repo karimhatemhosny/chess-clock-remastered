@@ -33,6 +33,7 @@ html {
 label {
   font-size: larger;
   color: white;
+  cursor: pointer;
 }
 input {
   border-radius: 5px;
@@ -134,6 +135,7 @@ h1 {
   text-align: center;
 }
 #form2 input {
+  cursor: pointer;
   width: unset;
   margin-right: 7px;
 }
