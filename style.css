@@ -1,5 +1,6 @@
 body,
 html {
+  scroll-behavior: smooth;
   padding: 0;
   margin: 0;
   background-color: #555;
@@ -128,33 +129,30 @@ h1 {
 .tools svg:active {
   transform: scale(0.97);
 }
-#form2 h2{
+#form2 h2 {
   color: white;
   text-align: center;
 }
-#form2 input{
+#form2 input {
   width: unset;
-  margin-left: 50px;
   margin-right: 7px;
 }
 
-#form2 
-#sumbit2 {
+#form2 #sumbit2 {
   margin-top: 2em;
 }
 #playerB {
   text-align: center;
   font-size: 30px;
   padding-top: 5px;
-  margin-bottom: 5px; 
+  margin-bottom: 5px;
   border-top: 1px solid white;
 }
-#playerA{
+#playerA {
   text-align: center;
   font-size: 30px;
   padding-top: 5px;
   margin-top: 5px;
-  
 }
 
 ::-webkit-scrollbar {
@@ -163,16 +161,25 @@ h1 {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background-color: #888; 
+  background-color: #888;
   border-radius: 5px;
 }
- 
+
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #333; 
+  background: #333;
   border-radius: 10px;
 }
 ::selection {
   color: white;
   background-color: #333;
+}
+legend {
+  color: white;
+  text-transform: capitalize;
+}
+fieldset {
+  border-radius: 5px;
+  margin: 10px 20px;
+  width: 90%;
 }
