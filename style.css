@@ -163,10 +163,10 @@ h1 {
   font-size: x-large;
 }
 #movesA {
-  top: calc(40% - 20px);
+  top: 5px;
 }
 #movesB {
-  bottom: calc(40% - 20px);
+  bottom: 5px;
 }
 
 ::-webkit-scrollbar {
