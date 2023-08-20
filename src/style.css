@@ -156,6 +156,18 @@ h1 {
   padding-top: 5px;
   margin-top: 5px;
 }
+.moves {
+  position: absolute;
+  left: 75px;
+  color: #444;
+  font-size: x-large;
+}
+#movesA {
+  top: calc(40% - 20px);
+}
+#movesB {
+  bottom: calc(40% - 20px);
+}
 
 ::-webkit-scrollbar {
   width: 20px;
