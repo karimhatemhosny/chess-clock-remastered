@@ -114,9 +114,10 @@ function timerA() {
   times.a += Number(times.bonus);
   buttonA.innerText = showInMinutes(times.a); // time
   clearInterval(intervalA);
-    moves.a += 1;
-    document.querySelector("#movesA span").innerText = moves.a;
-
+  moves.a += 1;
+  document.querySelector("#movesA span").innerText = moves.a;
+  buttonB.style.opacity = '1'
+  buttonA.style.opacity = '.4'
   intervalB = setInterval(() => {
     if (times.b === 0) {
       buttonB.style.backgroundColor = `rgb(255,0,0)`;
@@ -148,6 +149,8 @@ function timerB() {
   clearInterval(intervalB);
   moves.b += 1;
   document.querySelector("#movesB span").innerText = moves.b;
+  buttonA.style.opacity = '1'
+  buttonB.style.opacity = '.4'
   intervalA = setInterval(() => {
     if (times.a === 0) {
       buttonA.style.backgroundColor = `rgb(255,0,0)`;
